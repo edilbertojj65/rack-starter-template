@@ -6,6 +6,8 @@ class CreateCards < ActiveRecord::Migration[5.2]
       t.string  :date_vaccine
       t.string  :lot_number
       t.timestamps
+      t.string  :clinic_site
+      t.string  :viruses_name
       t.belongs_to :users, foreign_key: true
     end 
   end

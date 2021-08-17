@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2021_08_11_182727) do
     t.string "lot_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "clinic_site"
+    t.string "viruses_name"
     t.integer "users_id"
     t.index ["users_id"], name: "index_cards_on_users_id"
   end
@@ -28,8 +30,6 @@ ActiveRecord::Schema.define(version: 2021_08_11_182727) do
     t.string "name"
     t.string "last_name"
     t.string "birth_of_date"
-    t.string "clinic_site"
-    t.string "viruses_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

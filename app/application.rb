@@ -19,7 +19,11 @@ class Application
          id = req.path.split('/')[2] 
          user = User.find_by(id:id)
          if user
-           
+            # cards = user.cards
+            # user_res = {name: user.name,
+            # last_name: user.last_name,
+            # cards: cards}
+     #       binding.pry
             return [
             200, { 'Content-Type' => 'application/json' }, 
                 [ user.to_json ]
@@ -36,7 +40,9 @@ class Application
     # #User Create
           elsif req.path == '/users' &&  req.post?
                body = JSON.parse(req.body.read)
+         #      binding pry
                user = User.create(body)
+               
                if user
                  return [201, { 'Content-Type' => 'application/json' }, 
                    [ user.to_json ]]
@@ -48,8 +54,9 @@ class Application
                   id = req.path.split('/')[2] 
                   body = JSON.parse(req.body.read)
                   user = User.find_by(id:id)
+          
                if user     
-       #           user.update 
+               #   user.update 
                   return [202, { 'Content-Type' => 'application/json' }, 
                   [ user.to_json ]]
                end
@@ -60,7 +67,7 @@ class Application
                   body = JSON.parse(req.body.read)
                    user = User.find_by(id:id)
                    if user
-          #            user.destroy(body) 
+                    #  user.destroy(body) 
                    return [200, { 'Content-Type' => 'application/json' }, 
                     [ { message: 'user Destroyed' }.to_json ]]
                  end
